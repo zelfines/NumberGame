@@ -28,10 +28,10 @@ class NumberGame
             {
                 if (attempts >= maxAttempts)
                 {
-                    Console.WriteLine("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    Console.WriteLine("\n=========================================");
                     Console.WriteLine("        GAME OVER! OUT OF ATTEMPTS.");
                     Console.WriteLine($"        The number was: {target}");
-                    Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    Console.WriteLine("=========================================");
                     break;
                 }
                 Console.WriteLine($"\nAttempt {attempts + 1} of {maxAttempts}");
