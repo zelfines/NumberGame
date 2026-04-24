@@ -7,23 +7,35 @@ class NumberGame
     static void Main()
     {
         string playAgain;
+        int totalWins = 0;
         do
         {
             Random rand = new Random();
             int target = rand.Next(1, 1000);
             int guess = 0;
             int attempts = 0;
+            int maxAttempts = 10;
 
             Console.WriteLine("=========================================");
             Console.WriteLine("       WELCOME TO THE NUMBER GAME!     ");
             Console.WriteLine("=========================================");
             Console.WriteLine("\n        I Am Thinking Of A Number.");
-            Console.WriteLine("         Can You Guess It? (o.0)");
+            Console.WriteLine($"           You Have {maxAttempts} Attempts.");
+            Console.WriteLine("          Can You Guess It? (o.0)");
 
             // Game Logic
             while (guess != target)
             {
-                Console.Write("\nGuess The Number: ");
+                if (attempts >= maxAttempts)
+                {
+                    Console.WriteLine("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    Console.WriteLine("        GAME OVER! OUT OF ATTEMPTS.");
+                    Console.WriteLine($"        The number was: {target}");
+                    Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    break;
+                }
+                Console.WriteLine($"\nAttempt {attempts + 1} of {maxAttempts}");
+                Console.Write("Guess The Number: ");
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out guess))
